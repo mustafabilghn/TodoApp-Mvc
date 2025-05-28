@@ -1,0 +1,12 @@
+﻿@model TaskItem 
+
+<h2>Düzenle</h2>
+
+<form method="post" asp-action="Edit">
+    <input type="hidden" asp-for="Id"/>
+    <div>
+        <label>Başlık:</label>
+        <input asp-for="Title"/>
+        <button type="submit">Kaydet</button>
+    </div>
+</form>

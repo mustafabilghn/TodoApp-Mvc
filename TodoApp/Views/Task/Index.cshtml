@@ -1,0 +1,98 @@
+﻿    @using System.ComponentModel.DataAnnotations.Schema
+    @using System.Security.Cryptography
+    @using Microsoft.AspNetCore.Components.Web
+    @model List<TodoApp.Models.TaskItem>
+
+<h2>Görev Listesi</h2>
+
+<form method="post" asp-action="Add">
+    @Html.TextBox("Title", "Görev giriniz...", new
+        {
+            onfocus = "Clear(this)",
+            onblur = "Restore(this)"
+        })
+    <input type="submit" value="Ekle" name="buton" />
+</form>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #333;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: lightgrey;
+    }
+</style>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Başlık</th>
+            <th>Durum</th>
+            <th>Tarih</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Title</td>
+                <td> @(item.IsCompleted ? "Tamamlandı" : "Bekliyor") </td>
+                <td>@item.Date</td>
+                <td style="text-align:center">
+
+                    @if (item.IsCompleted)
+                    {
+                        <button disabled style="opacity:5;">Tamamla</button>
+                    }
+
+                    else
+                    {
+                        <form method="post" asp-action="Complete">
+                            <input type="hidden" name="id" value="@item.Id" />
+                            <button type="submit" style="background-color:green; color:black">Tamamla</button>
+                        </form>
+                    }
+                </td>
+                <td style="text-align:center">
+                    <form method="post" asp-action="Remove">
+                        <input type="hidden" name="id" value="@item.Id" />
+                        <button type="submit" style="background-color:red;color:black">Sil</button>
+                    </form>
+                </td>
+                <td style="text-align:center;">
+                    <form method="get" asp-action="Edit" asp-route-id=@item.Id>
+                        <button type="submit" style="background-color:yellow; color:black">Düzenle</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function Clear(input){
+        if(input.value != null)  {
+            input.value = "";
+        }
+    }
+
+    function Restore(input){
+        if(input.value == ""){
+            input.value = "Görev giriniz...";
+        }
+    }
+</script>
