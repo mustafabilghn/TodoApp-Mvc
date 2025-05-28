@@ -1,55 +1,65 @@
-To-do App
-A simple ASP.NET Core MVC application for managing tasks.
-You can add, update, complete, and delete tasks with a basic user interface.
+# To-do App
 
-Features
-✅ Add new tasks
+**To-do App** is a simple task management web application built with **ASP.NET Core MVC**.  
+It allows users to add, edit, complete, and delete tasks in a clean and functional interface.
 
-✅ Mark tasks as completed
+---
 
-✅ Edit task titles
+## 📌 Features
 
-✅ Delete tasks
+- ➕ Add new tasks  
+- ✏️ Edit existing tasks  
+- ✅ Mark tasks as completed  
+- 🗑️ Delete tasks  
+- 📋 Display tasks in a table format
 
-📄 Display all tasks in a clean table view
+---
 
-Technologies Used
-ASP.NET Core MVC
+## 🛠️ Technologies Used
 
-Razor Views
+- ASP.NET Core MVC  
+- Razor Views  
+- C#  
+- HTML & CSS  
+- In-memory storage (no database)
 
-C#
+---
 
-Basic HTML/CSS
+## 🚀 Getting Started
 
-No database used — tasks are stored in-memory
+### Prerequisites
 
-How to Run
-Clone the repository:
+- [.NET 6 SDK](https://dotnet.microsoft.com/download)
+- Visual Studio 2022 or later
 
-bash
-Kopyala
-Düzenle
-git clone https://github.com/yourusername/TodoApp.git
-cd TodoApp
-Open the solution in Visual Studio.
+### Run the Project
 
-Run the project (F5 or Ctrl + F5).
+1. **Clone the repository:**
 
-Navigate to /Task/Index to start using the app.
+   ```bash
+   git clone https://github.com/mustafabilghn/TodoApp.git
+   cd TodoApp
+2. **Open the Solution in Visual Studio**
 
-⚠️ Note: Since this project uses in-memory storage, all tasks will reset when the application restarts.
+3. **Run the app**
 
-Screenshots
-(You can add screenshots here if you want)
+4. **Visit in your browser:**
 
-Future Improvements
-Add database support (e.g., using Entity Framework Core and SQL Server)
+   ```bash
+   https://localhost:xxxx/Task/Index
+   
+⚠️ Note: The application uses in-memory data only. All tasks will be lost on app restart.
 
-User authentication
+---
 
-UI improvements with Bootstrap or Tailwind CSS
+## 📈 Future Improvements
 
-License
-This project is open source and free to use.
+- Add a real database using Entity Framework Core
+- User authentication
+- Improved UI with Bootstrap or similar CSS framework
+- Task filtering, search, and due dates
+  
+---
 
+## 📄 License
+This project is open-source and free to use.
