@@ -8,25 +8,34 @@ namespace TodoApp.Controllers
         private static List<TaskItem> _items = new();
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(string search)
         {
-            return View(_items);
+            var items = _items;
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                items = _items.Where(x => x.Title.Contains(search, StringComparison.OrdinalIgnoreCase)).ToList();
+            }
+            return View(items);
         }
 
         [HttpPost]
-        public IActionResult Add(TaskItem item)
+        public IActionResult Add(string title)
         {
-            if (!_items.Contains(item))
+            if (string.IsNullOrWhiteSpace(title) || title == "Görev giriniz")
             {
-                _items.Add(new TaskItem
-                {
-                    Id = _items.Count + 1,
-                    Title = item.Title,
-                    IsCompleted = false,
-                    Date = DateTime.Now
-                });
+                TempData["Error"] = "Lütfen geçerli bir görev giriniz!";
+                return RedirectToAction("Index");
             }
 
+            var item = new TaskItem
+            {
+                Id = _items.Count + 1,
+                Title = title,
+                IsCompleted = false,
+                Date = DateTime.Now
+            };
+            _items.Add(item);
             return RedirectToAction("Index");
         }
 
