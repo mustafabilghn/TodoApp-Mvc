@@ -95,25 +95,25 @@
 </table>
 
 <script>
-        function Clear(input){
-            if(input.value != null)  {
-                input.value = "";
-            }
+    function Clear(input){
+        if(input.value != null)  {
+            input.value = "";
         }
+    }
 
-        function Restore(input){
-            if(input.value == ""){
-                input.value = "Görev giriniz";
-            }
+    function Restore(input){
+        if(input.value == ""){
+            input.value = "Görev giriniz";
         }
+    }
 
-        function ValidateForm(){
-            var input = document.getElementById("taskInput");
-            var value = input.value;
-            if(value == "" || value == "Görev giriniz"){
-                alert("Lütfen geçerli bir görev giriniz!");
-                return false;
-            }
-            return true;
+    function ValidateForm(){
+        var input = document.getElementById("taskInput");
+        var value = input.value;
+        if(value == "" || value == "Görev giriniz"){
+            alert("Lütfen geçerli bir görev giriniz!");
+            return false;
         }
+        return true;
+    }
 </script>
