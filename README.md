@@ -63,3 +63,8 @@ It allows users to add, edit, complete, and delete tasks in a clean and function
 
 ## 📄 License
 This project is open-source and free to use.
+
+---
+
+## Screen Shots
+![Tasks Image](TodoApp/Tasks.png)
