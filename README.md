@@ -12,7 +12,7 @@ It allows users to add, edit, complete, and delete tasks in a clean and function
 - ✅ Mark tasks as completed  
 - 🗑️ Delete tasks  
 - 📋 Display tasks in a table format
-
+- 🔎 Search tasks
 ---
 
 ## 🛠️ Technologies Used
@@ -57,7 +57,7 @@ It allows users to add, edit, complete, and delete tasks in a clean and function
 - Add a real database using Entity Framework Core
 - User authentication
 - Improved UI with Bootstrap or similar CSS framework
-- Task filtering, search, and due dates
+- Task filtering,sort by date etc.
   
 ---
 
